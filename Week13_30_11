@@ -1,0 +1,33 @@
+public class Check_30_11 {
+    public static void main(String[] args) {
+        String a = "ABC";
+        String b = "CDE";
+        Thread thread = new Thread(){
+            @Override
+            public void run() {
+                synchronized (a){
+                    System.out.println("A is synchronized from Thread 1");
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {}
+                }synchronized (b) {
+                    System.out.println("B is synchronized from Thread 1");
+                }
+            }
+        };Thread threa = new Thread(){
+            @Override
+            public void run() {
+                synchronized (b){
+                    System.out.println("B is synchronized from Thread 1");
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {}
+                }synchronized (a) {
+                    System.out.println("A is synchronized from Thread 1");
+                }
+            }
+        };
+        thread.start();
+        threa.start();
+    }
+}
