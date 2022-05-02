@@ -1,0 +1,21 @@
+public class Check_30_4 {
+    public static void main(String[] args) throws InterruptedException {
+        ForMe thread = new ForMe();
+        for (int i = 0; i < 1000; i++) {
+            Thread t1 = new Thread(thread);
+            t1.start();
+            Thread.sleep(1);
+        }
+        System.out.println(thread.getX());
+    }
+}
+class ForMe extends Thread{
+    int x =0;
+    @Override
+    public synchronized void run(){
+        x += 1;
+    }
+    public  int getX(){
+        return x;
+    }
+}
