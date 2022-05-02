@@ -1,0 +1,40 @@
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class Check_21_1 {
+    public static void main(String[] args) {
+        Set<String> first = new HashSet<>();
+        first.add("George");
+        first.add("Jim");
+        first.add("John");
+        first.add("Blake");
+        first.add("Kevin");
+        first.add("Michael");
+
+        Set<String> second = new HashSet<>();
+        second.add("George");
+        second.add("Katie");
+        second.add("Kevin");
+        second.add("Michalle");
+        second.add("Ryan");
+
+        Set<String> forto = new HashSet<>(first);
+        Set<String> forone = new HashSet<>(second);
+        Set<String> fortwo = new HashSet<>(second);
+        Set<String> forth = new HashSet<>(second);
+
+        first.addAll(forone);
+        System.out.println("Union : " + first);
+
+        first.removeAll(fortwo);
+        System.out.println("Difference : " + first);
+
+        System.out.print("Intersection : ");
+        for (String e: forth) {
+        if (forto.contains(e)) {
+        System.out.print(e + " ");
+        }
+        }
+        }
+        }
