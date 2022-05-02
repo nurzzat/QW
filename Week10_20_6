@@ -1,0 +1,23 @@
+import java.util.Iterator;
+import java.util.LinkedList;
+
+public class Check_20_6 {
+    public static void main(String[] args) {
+
+        LinkedList<Integer> collection = new LinkedList<>();
+        long time = System.currentTimeMillis();
+        for (int i = 0; i < 5000000; i++) {
+            collection.add((int)(Math.random() * 10));
+        }
+        long endtime = System.currentTimeMillis();
+        System.out.println((endtime - time) + " milliseconds for Linked list");
+
+        long time2 = System.currentTimeMillis();
+        Iterator<Integer> iterator = collection.iterator();
+        while(iterator.hasNext())
+            iterator.next();
+        long endtime2 = System.currentTimeMillis();
+        System.out.println((endtime2 - time2)+ " milliseconds for Iterator");
+
+    }
+}
